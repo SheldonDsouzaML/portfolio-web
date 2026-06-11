@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 230 35% 8%;
+  --foreground: 220 20% 96%;
+  --card: 230 30% 13%;
+  --primary: 190 80% 60%;
+  --muted: 230 20% 18%;
+  --muted-foreground: 220 10% 70%;
+  --border: 0 0% 100%;
+  --destructive: 0 75% 55%;
+  --cyan: 190 80% 62%;
+  --violet: 270 75% 68%;
+  --emerald: 160 70% 55%;
+}
+
+* { border-color: hsl(var(--border) / 0.1); }
+html { scroll-behavior: smooth; }
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 20% 0%, hsl(270 75% 60% / 0.18), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 80% 20%, hsl(190 80% 60% / 0.15), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, hsl(160 70% 55% / 0.10), transparent 60%);
+  background-attachment: fixed;
+}
+h1, h2, h3, h4 { font-family: "Space Grotesk", system-ui, sans-serif; letter-spacing: -0.02em; }
+
+@layer utilities {
+  .glass {
+    background: hsl(var(--card) / 0.55);
+    border: 1px solid hsl(0 0% 100% / 0.1);
+    backdrop-filter: blur(18px) saturate(140%);
+  }
+  .glass-strong {
+    background: hsl(var(--card) / 0.75);
+    border: 1px solid hsl(0 0% 100% / 0.12);
+    backdrop-filter: blur(24px) saturate(150%);
+  }
+  .text-gradient {
+    background: linear-gradient(120deg, hsl(var(--cyan)), hsl(var(--violet)) 60%, hsl(var(--emerald)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .glow-cyan {
+    box-shadow: 0 0 0 1px hsl(var(--cyan) / 0.3),
+                0 10px 40px -10px hsl(var(--cyan) / 0.5);
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, hsl(0 0% 100% / 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(0 0% 100% / 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black, transparent 80%);
+            mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black, transparent 80%);
+  }
+}
